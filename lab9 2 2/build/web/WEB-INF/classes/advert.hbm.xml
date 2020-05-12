@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.me.pojo.Advert" table="advert_table">
+      <id name="id" type="int" column="id">
+          <!-- foreign means using foreign key，the primary key of person is the foreign key which is the primary key of idCard -->
+            <generator class="native" />
+      </id>
+      <property name="message" column="message" type="string" />
+      <property name="title" column="title" type="string" />
+      <!-- constrained表示一对一外键关联 -->
+      <many-to-one name="user" column="user" class="com.me.pojo.User" not-null="true" foreign-key="fk_advert_user" /> 
+      <set name="categories" table="category_advert_table" inverse="true">
+          <key column="advert" foreign-key="fk_category_advert"></key>
+          <many-to-many class="com.me.pojo.Category" column="category" foreign-key="fk_category_advert"></many-to-many>
+      </set>
+      
+  </class>
+</hibernate-mapping>

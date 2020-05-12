@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/a1</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">Mansi@55</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="user.hbm.xml"/>
+    <mapping resource="category.hbm.xml"/>
+    <mapping resource="advert.hbm.xml"/>
+    <mapping resource="flight.hbm.xml"/>
+<!--        <mapping resource="person.hbm.xml"/>-->
+<mapping class="com.me.pojo.Person"/>
+<mapping class="com.me.pojo.Airplane"/>
+<mapping class="com.me.pojo.Cities"/>
+<mapping class="com.me.pojo.FlightDetail"/>
+<mapping class="com.me.pojo.Passenger"/>
+<mapping class="com.me.pojo.Payment"/>
+<mapping class="com.me.pojo.Ticket"/>
+  </session-factory>
+</hibernate-configuration>

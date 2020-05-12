@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.me.pojo.Category" table="category_table">
+      <id name="id" type="int" column="personID">
+          <generator class="native" />
+      </id>
+      <property name="title" column="title" type="string" unique="true"/>
+      <set name="adverts" table="category_advert_table" cascade="save-update">
+          <key column="category" foreign-key="fk_advert_category"></key>
+          <many-to-many class="com.me.pojo.Advert" column="advert" foreign-key="fk_category_advert"></many-to-many>
+      </set>
+  </class>
+</hibernate-mapping>
